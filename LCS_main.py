@@ -980,7 +980,7 @@ if _advectParticles:
 					
 					elif _system == 'gyre_d' or _system == 'gyre_id':
 				
-						_uNew, _vNew = rk4_int(XX[i], YY[i], p, psi_rk, _timeStepper)
+						_uNew, _vNew = rk4_int(XX[i], YY[i], p, psi_rk, _timeStepper)   ################### psi_rk少参数e
 						
 					elif _system == 'ABC':
 						
