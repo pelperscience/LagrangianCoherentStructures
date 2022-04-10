@@ -375,7 +375,7 @@ elif _system == 'Data':
 		_vN = cArrGPU.copy_to_host()
 		
 		if _computeLVGT:
-			_vNalt = _vfun(np.column_stack([XXalt, YYalt, ZZalt]))
+			_vNalt = _vfun(np.column_stack([XXalt, YYalt, ZZalt]))          ############################ XXalt, YYalt, ZZalt没有定义
 		
 		del _v
 		
@@ -388,7 +388,7 @@ elif _system == 'Data':
 		_wN = cArrGPU.copy_to_host()
 		
 		if _computeLVGT:
-			_wNalt = _wfun(np.column_stack([XXalt, YYalt, ZZalt]))
+			_wNalt = _wfun(np.column_stack([XXalt, YYalt, ZZalt]))          ############################ XXalt, YYalt, ZZalt没有定义
 		
 		del _w
 		
