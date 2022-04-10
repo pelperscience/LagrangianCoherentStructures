@@ -476,13 +476,13 @@ if _computeVelocity:
 			
 				if _system == 'Bickley':
 				
-					_u, _v = psi_vel(XX[i], YY[i], p)
+					_u, _v = psi_vel(XX[i], YY[i], p)    #################################### 只知道流函数，psi_vel计算速度，未定义
 					
 					_appendedVelocity.append([_u, _v])
 			
 				elif _system == 'gyre_d' or _system == 'gyre_id':
 				
-					_u, _v = psi(XX[i], YY[i], p, eVal)
+					_u, _v = psi(XX[i], YY[i], p, eVal)     #################################### psi计算速度，有问题
 					
 					_appendedVelocity.append([_u, _v])
 					
