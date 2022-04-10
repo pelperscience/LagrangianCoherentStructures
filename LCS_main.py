@@ -338,7 +338,7 @@ elif _system == 'Data':
 
 	_uvwData = np.zeros((_resolution**3, 3, _integrationTimeSteps))
 	
-	if _computeLVGT:
+	if _computeLVGT:   ############################ _computeLVGT没有定义
 		_uvwDataAlt = np.zeros((_resolution**3, 3, _integrationTimeSteps))
 	
 	# Data is read in as zFastest
