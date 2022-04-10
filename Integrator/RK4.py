@@ -218,7 +218,7 @@ def interp3_fast(xloc, yloc, zloc, val, x, y, z):
 		
 def rk4_data(xk, yk, zk, tk, abc, h, x, y, z, _uReshaped, _vReshaped, _wReshaped, sign):
 	
-	def uvw(tn, xk, yk, zk):
+	def uvw(tn, xk, yk, zk):     ################################### 有问题！应该计算不同时刻（tn）的速度。先插值得到tn时刻的速度，再插值得到（xk, yk, zk）位置的速度
 			
 		u = interp3_fast(xk, yk, zk, _uReshaped, x, y, z)
 		v = interp3_fast(xk, yk, zk, _vReshaped, x, y, z)
@@ -226,31 +226,31 @@ def rk4_data(xk, yk, zk, tk, abc, h, x, y, z, _uReshaped, _vReshaped, _wReshaped
 		
 		return u, v, w
 		
-	k1x, k1y, k1z = uvw(tk, xk, yk, zk)
+	k1x, k1y, k1z = uvw(tk, xk, yk, zk)     ################################### *h
 		
 	xk1 = xk + sign*(k1x/2)
 	yk1 = yk + sign*(k1y/2)
 	zk1 = zk + sign*(k1z/2)
 	tk1 = tk + sign*(h/2)
 	
-	k2x, k2y, k2z = uvw(tk, xk, yk, zk)
+	k2x, k2y, k2z = uvw(tk, xk, yk, zk)     ################################### *h
 	
 	xk2 = xk + sign*(k2x/2)
 	yk2 = yk + sign*(k2y/2)
 	zk2 = zk + sign*(k2z/2)
 	tk2 = tk + sign*(h/2)
 	
-	k3x, k3y, k3z = uvw(tk, xk, yk, zk)
+	k3x, k3y, k3z = uvw(tk, xk, yk, zk)     ################################### *h
 	
 	xk3 = xk + sign*k3x
 	yk3 = yk + sign*k3y
 	zk3 = zk + sign*k3z
 	tk3 = tk + sign*h
 	
-	k4x, k4y, k4z = uvw(tk, xk, yk, zk)
+	k4x, k4y, k4z = uvw(tk, xk, yk, zk)     ################################### *h
 	
-	xp1 = xk + sign*((h/6)*(k1x+2*k2x+2*k3x+k4x))
-	yp1 = yk + sign*((h/6)*(k1y+2*k2y+2*k3y+k4y))
-	zp1 = zk + sign*((h/6)*(k1z+2*k2z+2*k3z+k4z))
+	xp1 = xk + sign*((h/6)*(k1x+2*k2x+2*k3x+k4x))     ################################### 不加h
+	yp1 = yk + sign*((h/6)*(k1y+2*k2y+2*k3y+k4y))     ################################### 不加h
+	zp1 = zk + sign*((h/6)*(k1z+2*k2z+2*k3z+k4z))     ################################### 不加h
 	
 	return xp1, yp1, zp1
