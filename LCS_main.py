@@ -496,7 +496,7 @@ if _computeVelocity:
 			
 			_appendedVelocity = np.array(_appendedVelocity)
 			
-			if np.shape(_appendedVelocity)[1] == 2:
+			if np.shape(_appendedVelocity)[1] == 2:      #################################### 可以增加3d情况
 			
 				fw = open('Velocity/' + str(_fileCounter) + 'u.bin', 'wb')
 				for i in range(len(_appendedVelocity[:, 0])):
