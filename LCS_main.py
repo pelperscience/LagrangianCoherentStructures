@@ -362,7 +362,7 @@ elif _system == 'Data':
 		_uN = cArrGPU.copy_to_host()
 		
 		if _computeLVGT:
-			_uNalt = _ufun(np.column_stack([XXalt, YYalt, ZZalt]))
+			_uNalt = _ufun(np.column_stack([XXalt, YYalt, ZZalt]))          ############################ XXalt, YYalt, ZZalt没有定义
 		
 		del _u
 		
