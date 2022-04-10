@@ -72,28 +72,28 @@ def rk4_3(xk, yk, zk, tk, abc, h):
 	
 	# if integration_type == 'Forward':
 		
-		k1x, k1y, k1z = abc(xk, yk, zk, tk)
+		k1x, k1y, k1z = abc(xk, yk, zk, tk)     ################################### *h
 		
 		xk1 = xk+(k1x/2)
 		yk1 = yk+(k1y/2)
 		zk1 = zk+(k1z/2)
 		tk1 = tk+(h/2)
 		
-		k2x, k2y, k2z = abc(xk1, yk1, zk1, tk1)
+		k2x, k2y, k2z = abc(xk1, yk1, zk1, tk1)     ################################### *h
 		
 		xk2 = xk+(k2x/2)
 		yk2 = yk+(k2y/2)
 		zk2 = zk+(k2z/2)
 		tk2 = tk+(h/2)
 		
-		k3x, k3y, k3z = abc(xk2, yk2, zk2, tk2)
+		k3x, k3y, k3z = abc(xk2, yk2, zk2, tk2)     ################################### *h
 		
 		xk3 = xk+k3x
 		yk3 = yk+k3y
 		zk3 = zk+k3z
 		tk3 = tk+h
 		
-		k4x, k4y, k4z = abc(xk3, yk3, zk3, tk3)
+		k4x, k4y, k4z = abc(xk3, yk3, zk3, tk3)     ################################### *h
 		
 		xp1 = xk + ((1/6)*(k1x+2*k2x+2*k3x+k4x))
 		yp1 = yk + ((1/6)*(k1y+2*k2y+2*k3y+k4y))
